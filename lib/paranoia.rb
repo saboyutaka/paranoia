@@ -89,7 +89,7 @@ module Paranoia
   # when they shouldn't
   if ActiveRecord::VERSION::STRING >= "4.1"
     def destroy!
-      destroyed? ? super : destroy || raise(ActiveRecord::RecordNotDestroyed)
+      destroyed? ? super : destroy || raise(ActiveRecord::RecordNotDestroyed, self)
     end
   end
 
